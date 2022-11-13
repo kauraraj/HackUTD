@@ -1,7 +1,8 @@
 import "./App.css";
 import DuringTimePeriod from "./containers/duringTimePeriod/duringTimePeriod";
-import CategoryContainer from "./containers/categories/categoriesContainer";
+import CategoryContainer from "./containers/BeforeTimePeriod/categoriesContainer";
 import NavBar from "./components/nav/navBar";
+import Learning from "./containers/learning/learningFinance";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
         <NavBar></NavBar>
         <CategoryContainer></CategoryContainer>
         <DuringTimePeriod></DuringTimePeriod>
+        <Learning></Learning>
       </div>
     </>
   );
