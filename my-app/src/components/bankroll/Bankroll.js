@@ -14,7 +14,7 @@ export default function PullBankStatements() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [merchantVendors, setMerchant] = useState([]);
   const [items, setItems] = useState([]);
-  const totalCategories = [50, 400, 100];
+  const totalCategories = [50, 400, 100, 300];
 
   // Note: the empty deps array [] means
   // this useEffect will run once
