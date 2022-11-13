@@ -1,11 +1,11 @@
-import TextField from "@material-ui/core/TextField";
+import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
-import { Button, Paper } from "@material-ui/core";
+import { Button, Paper } from "@mui/material";
 
 export const FormWithoutHookForm = () => {
-  const [textValue, setTextValue] = useState<string>("");
+  const [textValue, setTextValue] = useState("");
 
-  const onTextChange = (e: any) => setTextValue(e.target.value);
+  const onTextChange = (e) => setTextValue(e.target.value);
   const handleSubmit = () => console.log(textValue);
   const handleReset = () => setTextValue("");
 
