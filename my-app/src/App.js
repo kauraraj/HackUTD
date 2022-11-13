@@ -12,7 +12,6 @@ function App() {
         <NavBar></NavBar>
         <CategoryContainer></CategoryContainer>
         <DuringTimePeriod></DuringTimePeriod>
-        
       </div>
     </>
   );
