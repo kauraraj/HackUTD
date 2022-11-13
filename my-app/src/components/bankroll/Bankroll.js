@@ -14,6 +14,7 @@ export default function PullBankStatements() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [merchantVendors, setMerchant] = useState([]);
   const [items, setItems] = useState([]);
+  const totalCategories = [50, 400, 100];
 
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -54,7 +55,7 @@ export default function PullBankStatements() {
   }, []);
 
   var combo = items.map(function (e, i) {
-    return [items[i], merchantVendors[i]];
+    return [items[i], merchantVendors[i], totalCategories[i]];
   });
 
   if (error) {
@@ -85,7 +86,7 @@ export default function PullBankStatements() {
                 </TableCell>
                 <TableCell align="right">${item[0].amount}</TableCell>
                 <TableCell align="right">{item[0].description}</TableCell>
-                <TableCell align="right">Amount Left</TableCell>
+                <TableCell align="right">{item[2] - item[0].amount}</TableCell>
                 <TableCell align="right">{item[0].purchase_date}</TableCell>
               </TableRow>
             ))}
