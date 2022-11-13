@@ -2,7 +2,7 @@ import { Typography, Box } from "@mui/material";
 import PullBankStatements from "../../components/bankroll/Bankroll";
 const styles = {
   body: {
-    backgroundColor: "#73C67C",
+    backgroundColor: "#A5CCA4",
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",

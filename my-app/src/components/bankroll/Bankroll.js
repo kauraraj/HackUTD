@@ -12,6 +12,7 @@ export default function PullBankStatements() {
   /* Declaring a variable called error and setting it to null. */
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [merchantVendors, setMerchant] = useState([]);
   const [items, setItems] = useState([]);
 
   // Note: the empty deps array [] means
@@ -26,15 +27,21 @@ export default function PullBankStatements() {
         (result) => {
           setIsLoaded(true);
           setItems(result);
-          result.map((re) => {
-            return fetch(
-              "http://api.nessieisreal.com/merchants/" +
-                re.merchant_id +
-                "?key=a49d1d95d9ef2eeec64c6ef4639add8c"
-            )
-              .then((res) => res.json())
-              .then((merchants) => {}); // how to connect and map it to the others?
-          });
+          result.map(
+            async (re) => {
+              const res = await fetch(
+                "http://api.nessieisreal.com/merchants/" +
+                  re.merchant_id +
+                  "?key=a49d1d95d9ef2eeec64c6ef4639add8c"
+              );
+              const merchants = await res.json();
+              setMerchant((merchantVendors) => [...merchantVendors, merchants]); // how to connect and map it to the others?
+            },
+            (error) => {
+              setIsLoaded(false);
+              setError(error);
+            }
+          );
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -45,6 +52,10 @@ export default function PullBankStatements() {
         }
       );
   }, []);
+
+  var combo = items.map(function (e, i) {
+    return [items[i], merchantVendors[i]];
+  });
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -63,18 +74,19 @@ export default function PullBankStatements() {
           </TableHead>
           <TableBody>
             {/* Need to enable showing based on time-period */}
-            {items.map((item) => (
+            {combo.map((item) => (
               <TableRow
-                key={item.pay_id}
+                key={item[0].pay_id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {item.name}
+                  {/* {item[1].name} */}
+                  TBD
                 </TableCell>
-                <TableCell align="right">${item.amount}</TableCell>
-                <TableCell align="right">{item.description}</TableCell>
+                <TableCell align="right">${item[0].amount}</TableCell>
+                <TableCell align="right">{item[0].description}</TableCell>
                 <TableCell align="right">Amount Left</TableCell>
-                <TableCell align="right">{item.purchase_date}</TableCell>
+                <TableCell align="right">{item[0].purchase_date}</TableCell>
               </TableRow>
             ))}
           </TableBody>

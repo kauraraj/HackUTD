@@ -1,16 +1,11 @@
 import React from "react";
-import {
-  Typography,
-  FormControl,
-  Select,
-  MenuItem,
-} from "@mui/material";
+import { Typography, FormControl, Select, MenuItem } from "@mui/material";
 import CategorySelect from "../../components/category/Category";
 import { Box } from "@mui/material";
 import { CostForm } from "../../components/inputForm/inputForm";
 const styles = {
   budget: {
-    backgroundColor: "#1245ab",
+    backgroundColor: "#76C7DB",
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
@@ -20,7 +15,7 @@ const styles = {
     color: "white",
   },
   income: {
-    backgroundColor: "#1245ab",
+    backgroundColor: "#76C7DB",
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
@@ -30,7 +25,7 @@ const styles = {
     color: "white",
   },
   timetrack: {
-    backgroundColor: "#1245ab",
+    backgroundColor: "#A5CCA4",
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",

@@ -6,10 +6,13 @@ import IconButton from "@mui/material/IconButton";
 import MuiAppBar from "@mui/material/AppBar";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Badge from "@mui/material/Badge";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MenuIcon from "@mui/icons-material/Menu";
-
+const styles = {
+  ahref: {
+    color: "white",
+    textDecoration: "none",
+  },
+};
 function NavBar() {
   const drawerWidth = 0;
   const mdTheme = createTheme();
@@ -38,9 +41,14 @@ function NavBar() {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", backgroundColor: "#A5CCA4" }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        <AppBar
+          position="sticky"
+          open={open}
+          top="20px"
+          sx={{ top: "20px", backgroundColor: "#254D32", color: "#FFFFFF" }}
+        >
           <Toolbar
             sx={{
               pr: "24px", // keep right padding when drawer closed
@@ -65,9 +73,43 @@ function NavBar() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              <a href="#top" style={styles.ahref}>
+                Home
+              </a>
             </Typography>
-
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              <a href="#before" style={styles.ahref}>
+                Getting Started
+              </a>
+            </Typography>
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              <a href="#during" style={styles.ahref}>
+                My Purchases
+              </a>
+            </Typography>
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              <a href="#finance" style={styles.ahref}>
+                Learn to Save
+              </a>
+            </Typography>
           </Toolbar>
         </AppBar>
       </Box>

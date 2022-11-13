@@ -1,5 +1,5 @@
 import TextField from "@mui/material/TextField";
-import {InputAdornment} from "@mui/material";
+import { InputAdornment } from "@mui/material";
 import React, { useState } from "react";
 import { Button, Paper } from "@mui/material";
 
@@ -16,7 +16,6 @@ export const CostForm = (props) => {
         onChange={onTextChange}
         value={textValue}
         label={props.categoryName} //optional
-        startAdornment={<InputAdornment position="start">$</InputAdornment>}
       />
       <Button onClick={handleSubmit}>Submit</Button>
       <Button onClick={handleReset}>Reset</Button>
